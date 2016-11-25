@@ -203,7 +203,7 @@ public class ImageGridAdapter extends BaseAdapter {
 //                ImagePagerActivity.startActivity(act, 0, urls);
                 //可以多个选择的
 
-                ImagePagerActivity.startActivityWithHF_NotSelected(act, position, pathList, new ImagePagerActivity.OnSelectedListener() {
+                ImagePagerActivity.startActivityWithHF_NotSelected(act, position, pathList,Bimp.drr, new ImagePagerActivity.OnSelectedListener() {
                     @Override
                     public void onSelected(boolean ifSelected, String path) {
                         if (ifSelected) {
