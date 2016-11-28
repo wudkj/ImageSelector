@@ -203,7 +203,7 @@ public class ImageGridAdapter extends BaseAdapter {
 //                ImagePagerActivity.startActivity(act, 0, urls);
                 //可以多个选择的
 
-                ImagePagerActivity.startActivityWithHF_NotSelected(act, position, pathList,Bimp.drr, new ImagePagerActivity.OnSelectedListener() {
+                ImagePagerActivity.startActivityWithHF_NotSelected(act, position, pathList, Bimp.drr, maxPic, new ImagePagerActivity.OnSelectedListener() {
                     @Override
                     public void onSelected(boolean ifSelected, String path) {
                         if (ifSelected) {
@@ -232,6 +232,7 @@ public class ImageGridAdapter extends BaseAdapter {
 //            holder.selected.setVisibility(View.GONE);
             holder.text.setBackgroundColor(0x00000000);
             holder.isChecked.setChecked(false);
+            textcallback.onListen(Bimp.drr.size());
             hideFrame(holder);
         }
         return convertView;

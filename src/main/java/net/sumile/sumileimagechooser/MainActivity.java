@@ -3,8 +3,13 @@ package net.sumile.sumileimagechooser;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import net.sumile.sumileimagechooser.utils.BitmapCache;
 
 import java.util.ArrayList;
 
@@ -15,12 +20,14 @@ import butterknife.OnClick;
 public class MainActivity extends Activity {
 
     @Bind(R.id.activity_main)
-    RelativeLayout activityMain;
+    LinearLayout activityMain;
+    private View rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        rootView = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
+        setContentView(rootView);
         ButterKnife.bind(this);
     }
 
@@ -30,7 +37,12 @@ public class MainActivity extends Activity {
             @Override
             public void onActivityResult(Intent data) {
                 ArrayList<String> list = (ArrayList<String>) data.getSerializableExtra("data");
-                Log.e("sumile", list.toString());
+                for (String str : list) {
+                    ImageView imageView = new ImageView(MainActivity.this);
+                    BitmapCache cache = new BitmapCache();
+                    cache.displayBmp(imageView, str, str, null);
+                    activityMain.addView(imageView);
+                }
             }
         });
     }
