@@ -51,6 +51,20 @@ public class SumileImageChooserUtil extends Activity {
 
     public static ActivityResult mCallBack;
 
+    /**
+     * {@code SumileImageChooserUtil.startThisForPics(this, 3, new SumileImageChooserUtil.ActivityResult() {
+    @Override
+    public void onActivityResult(Intent data) {
+    ArrayList<String> list = (ArrayList<String>) data.getSerializableExtra("data");
+    for (String str : list) {
+    ImageView imageView = new ImageView(MainActivity.this);
+    BitmapCache cache = new BitmapCache();
+    cache.displayBmp(imageView, str, str, null);
+    activityMain.addView(imageView);
+    }
+    }
+    });}
+     */
     public static void startThisForPics(Activity activity, int max_pic, ActivityResult callBack) {
         mMax_pics = max_pic;
         mCallBack = callBack;

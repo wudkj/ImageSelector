@@ -1,13 +1,11 @@
 package net.sumile.sumileimagechooser.utils;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.MessageQueue;
 import android.util.TypedValue;
 import android.widget.Toast;
-
-
-import net.sumile.sumileimagechooser.MyApplication;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -21,7 +19,7 @@ public class UIHelper {
     }
 
     public static void ToastMessage(String msg) {
-        Toast.makeText(MyApplication.getInstance(), msg, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(MyApplication.getInstance(), msg, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -33,17 +31,17 @@ public class UIHelper {
     /**
      * dip转换px
      */
-    public static int dip2px(int dip) {
+    public static int dip2px(Context acty, int dip) {
 //        final float scale = MyApplication.getInstance().getResources().getDisplayMetrics().density;
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip,
-                MyApplication.getInstance().getResources().getDisplayMetrics());
+                acty.getResources().getDisplayMetrics());
     }
 
     /**
      * pxz转换dip
      */
-    public static int px2dip(int px) {
-        final float scale = MyApplication.getInstance().getResources().getDisplayMetrics().density;
+    public static int px2dip(Context acty, int px) {
+        final float scale = acty.getResources().getDisplayMetrics().density;
         return (int) (px / scale + 0.5f);
     }
 

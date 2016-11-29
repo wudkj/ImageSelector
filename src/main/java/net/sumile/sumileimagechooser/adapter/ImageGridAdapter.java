@@ -132,7 +132,7 @@ public class ImageGridAdapter extends BaseAdapter {
     private class Holder {
         // 获取屏幕宽
         private int width = ((Activity) act).getWindowManager().getDefaultDisplay().getWidth();
-        private int itemWrite = (width - 2 * (UIHelper.dip2px(5))) / 3;
+        private int itemWrite = (width - 2 * (UIHelper.dip2px(act,5))) / 3;
         private ImageView iv;
         private ImageView selected;
         private TextView text;

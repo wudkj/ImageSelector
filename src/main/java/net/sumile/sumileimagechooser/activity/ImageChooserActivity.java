@@ -1,8 +1,6 @@
 package net.sumile.sumileimagechooser.activity;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -30,39 +28,23 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * Created by sumile on 2016/11/19.
  */
 
 public class ImageChooserActivity extends FragmentActivity {
-    @Bind(R.id.img_back)
     ImageView imgBack;
-    @Bind(R.id.left_layout)
     RelativeLayout leftLayout;
-    @Bind(R.id.top_title)
     TextView topTitle;
-    @Bind(R.id.main_right_text)
     TextView mainRightText;
-    @Bind(R.id.right_layout_text)
     RelativeLayout rightLayoutText;
-    @Bind(R.id.folderName)
     TextView folderName;
-    @Bind(R.id.selectedNum)
     TextView selectedNum;
-    @Bind(R.id.preview)
     TextView preview;
-    @Bind(R.id.tmp_bar)
     RelativeLayout tmpBar;
-    @Bind(R.id.gridview)
     GridView gridview;
-    @Bind(R.id.list)
     ListView list;
-    @Bind(R.id.folderLinearLayout)
     LinearLayout folderLinearLayout;
-    @Bind(R.id.frame)
     LinearLayout frame;
     //所有的相册数据
     private List<ImageBucket> buckets;
@@ -84,13 +66,29 @@ public class ImageChooserActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.imagechooserlayout);
-        ButterKnife.bind(this);
+        initView();
         Bimp.clear();
         parseIntent();
         initAnim();
         initFolderLayout();
         initData();
         initAction();
+    }
+
+    private void initView() {
+        imgBack = (ImageView) findViewById(R.id.img_back);
+        leftLayout = (RelativeLayout) findViewById(R.id.left_layout);
+        topTitle = (TextView) findViewById(R.id.top_title);
+        mainRightText = (TextView) findViewById(R.id.main_right_text);
+        rightLayoutText = (RelativeLayout) findViewById(R.id.right_layout_text);
+        folderName = (TextView) findViewById(R.id.folderName);
+        selectedNum = (TextView) findViewById(R.id.selectedNum);
+        preview = (TextView) findViewById(R.id.preview);
+        tmpBar = (RelativeLayout) findViewById(R.id.tmp_bar);
+        gridview = (GridView) findViewById(R.id.gridview);
+        list = (ListView) findViewById(R.id.list);
+        folderLinearLayout = (LinearLayout) findViewById(R.id.folderLinearLayout);
+        frame = (LinearLayout) findViewById(R.id.frame);
     }
 
     public static final String MAX_PICS = "MAX_PICS";
@@ -122,7 +120,7 @@ public class ImageChooserActivity extends FragmentActivity {
     private Animation hideAnim;
 
     private void initAnim() {
-        showAnim = AnimationUtils.loadAnimation(this, R.anim.photo_dialog_in_anim);
+        showAnim = AnimationUtils.loadAnimation(this, R.anim.forder_in);
         showAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -139,7 +137,7 @@ public class ImageChooserActivity extends FragmentActivity {
 
             }
         });
-        hideAnim = AnimationUtils.loadAnimation(this, R.anim.photo_dialog_out_anim);
+        hideAnim = AnimationUtils.loadAnimation(this, R.anim.forder_out);
         hideAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {

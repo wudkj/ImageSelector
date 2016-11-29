@@ -20,7 +20,6 @@ import net.sumile.sumileimagechooser.util.ImageBucketProvider;
 
 import java.util.List;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
@@ -28,7 +27,6 @@ import butterknife.ButterKnife;
  */
 
 public class DialogActivity extends DialogFragment {
-    @Bind(R.id.list)
     ListView list;
     private View mRootView;
     private FragmentManager fragmentManager;
@@ -43,8 +41,12 @@ public class DialogActivity extends DialogFragment {
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         mRootView = inflater.inflate(R.layout.folderchooselayout, container, true);
         fragmentManager = getChildFragmentManager();
-        ButterKnife.bind(this, mRootView);
+        initView(mRootView);
         return mRootView;
+    }
+
+    private void initView(View view) {
+        list = (ListView) view.findViewById(R.id.list);
     }
 
     @Override

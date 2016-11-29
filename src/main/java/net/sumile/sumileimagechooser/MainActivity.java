@@ -19,31 +19,31 @@ import butterknife.OnClick;
 
 public class MainActivity extends Activity {
 
-    @Bind(R.id.activity_main)
-    LinearLayout activityMain;
-    private View rootView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        rootView = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
-        setContentView(rootView);
-        ButterKnife.bind(this);
-    }
-
-    @OnClick(R.id.activity_main)
-    public void onClick() {
-        SumileImageChooserUtil.startThisForPics(this, 3, new SumileImageChooserUtil.ActivityResult() {
-            @Override
-            public void onActivityResult(Intent data) {
-                ArrayList<String> list = (ArrayList<String>) data.getSerializableExtra("data");
-                for (String str : list) {
-                    ImageView imageView = new ImageView(MainActivity.this);
-                    BitmapCache cache = new BitmapCache();
-                    cache.displayBmp(imageView, str, str, null);
-                    activityMain.addView(imageView);
-                }
-            }
-        });
-    }
+//    @Bind(R.id.activity_main)
+//    LinearLayout activityMain;
+//    private View rootView;
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        rootView = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
+//        setContentView(rootView);
+//        ButterKnife.bind(this);
+//    }
+//
+//    @OnClick(R.id.activity_main)
+//    public void onClick() {
+//        SumileImageChooserUtil.startThisForPics(this, 3, new SumileImageChooserUtil.ActivityResult() {
+//            @Override
+//            public void onActivityResult(Intent data) {
+//                ArrayList<String> list = (ArrayList<String>) data.getSerializableExtra("data");
+//                for (String str : list) {
+//                    ImageView imageView = new ImageView(MainActivity.this);
+//                    BitmapCache cache = new BitmapCache();
+//                    cache.displayBmp(imageView, str, str, null);
+//                    activityMain.addView(imageView);
+//                }
+//            }
+//        });
+//    }
 }
