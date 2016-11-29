@@ -53,8 +53,7 @@ public class SumileImageChooserUtil extends Activity {
 
     /**
      * {@code SumileImageChooserUtil.startThisForPics(this, 3, new SumileImageChooserUtil.ActivityResult() {
-    @Override
-    public void onActivityResult(Intent data) {
+    @Override public void onActivityResult(Intent data) {
     ArrayList<String> list = (ArrayList<String>) data.getSerializableExtra("data");
     for (String str : list) {
     ImageView imageView = new ImageView(MainActivity.this);

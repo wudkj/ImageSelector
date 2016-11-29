@@ -22,6 +22,8 @@
         <activity
             android:name=".SumileImageChooserUtil"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".activity.SumileTakePhotoUtil"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
     </application>
 
 </manifest>
