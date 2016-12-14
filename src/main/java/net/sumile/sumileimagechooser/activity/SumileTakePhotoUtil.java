@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import net.sumile.sumileimagechooser.SumileImageChooserUtil;
 import net.sumile.sumileimagechooser.util.PermissionUtil;
+import net.sumile.sumileimagechooser.utils.Constant;
 
 import java.io.File;
 
@@ -92,7 +93,7 @@ public class SumileTakePhotoUtil extends Activity {
     private void takePhoto(Context context) {
         if (hasSdCard()) {
             try {
-                File dir = new File(Environment.getExternalStorageDirectory() + "/AutoUnion/" + "image");
+                File dir = new File(Constant.AVATAR_PATH_IN_SDCARD);
                 if (!dir.exists())
                     dir.mkdirs();
 

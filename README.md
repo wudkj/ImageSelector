@@ -1,5 +1,5 @@
 # ImageSelector
-微信图片选择器
+微信图片选择器/拍照
 
 ##效果
 ![ImageSelector](pic/ImageSelector.gif)
@@ -30,3 +30,18 @@
 	-	如果Intent的data是空，回调方法就不会被进入，所以没有必要判断是否为null了
 
 该module(A)需要引用另一个module(B),(B)地址为：https://github.com/wudkj/ImageViewpager ，(B)也可单独使用
+
+#拍照
+
+-	使用
+
+			SumileTakePhotoUtil.takePhoto(MainActivity.this, new SumileImageChooserUtil.ActivityResult() {
+			    @Override
+			    public void onActivityResult(Intent data) {
+			        String path = data.getStringExtra("data");//图片地址
+			    }
+			});
+
+-	注意
+	-	如果没有拍照（点击照相机的叉或者手机的返回），回调都不会被调用，只有生成文件之后才会调用
+	-	使用之前注意修改图片保存路径    Constant.java 里面
