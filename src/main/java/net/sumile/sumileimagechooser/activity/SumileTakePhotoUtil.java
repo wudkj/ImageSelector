@@ -61,10 +61,12 @@ public class SumileTakePhotoUtil extends Activity {
             // 从相机返回的数据
             if (hasSdCard()) {
                 if (f != null) {
-                    String path = f.getAbsolutePath();
-                    Intent intent = new Intent();
-                    intent.putExtra("data", path);
-                    mCallBack.onActivityResult(intent);
+                    if (f.exists()) {
+                        String path = f.getAbsolutePath();
+                        Intent intent = new Intent();
+                        intent.putExtra("data", path);
+                        mCallBack.onActivityResult(intent);
+                    }
                 } else {
                 }
             } else {
